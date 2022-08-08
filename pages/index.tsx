@@ -1,49 +1,42 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import axios from 'axios';
-import { useEffect } from 'react';
+import logo from '../public/logo.svg';
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    const auth = async () => {
-      const response = await axios.post(
-        'http://localhost:1337/api/auth/local',
-        {
-          identifier: process.env.NEXT_PUBLIC_USER,
-          password: process.env.NEXT_PUBLIC_PASS,
-        }
-      );
-      console.log(response);
-    };
-    auth();
-  }, []);
-
-  const getPost = async (): Promise<void> => {
-    const response = await axios.get('http://localhost:1337/api/articles', {
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-      },
-    });
-    console.log(response);
-  };
-
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Dallas Vaughn | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <button
-          className="ring-2 ring-red-800 sm:ring-offset-4 sm:ring-offset-purple-900"
-          onClick={getPost}
-        >
-          Get da data
-        </button>
-      </main>
-    </div>
+      <header>
+        <div className="flex justify-between items-center px-5">
+          <span className="flex items-center">
+            <Image src={logo} alt="logo" width={70} height={70} />
+            <span className="text-2xl hidden sm:flex flex-col ml-4 mt-2 uppercase">
+              <strong className="font-black">Dallas</strong>{' '}
+              <span className="font-extralight ml-6 -mt-3">Vaughn</span>
+            </span>
+          </span>
+          <nav className="flex text-sm">
+            <a
+              className="ml-4 link border-b-2 border-teal-800 rounded-sm"
+              href="/"
+            >
+              Home
+            </a>
+            <a className="ml-4 transition-all ease-in-out hover:border-b-2 ">
+              Blog
+            </a>
+            <a className="ml-4">About</a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center"></main>
+    </>
   );
 };
 
