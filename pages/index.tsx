@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../public/logo.svg';
+import crow from '../public/crow-fly.svg';
 
 const Home: NextPage = () => {
   return (
@@ -43,7 +44,28 @@ const Home: NextPage = () => {
         </div>
       </header>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center"></main>
+      <main className="flex w-full flex-1 flex-col items-center justify-center text-center">
+        <div className="relative top-0 mb-20">
+          <div className="h-10 sm:h-20"></div>
+          <div className="animate-slow-pulse relative opacity-20 min-h-[450px] sm:min-h-[500px] w-screen">
+            <Image src={crow} layout="fill" />
+          </div>
+          <div className="absolute w-full h-full top-0 flex align-center justify-center">
+            <div className="absolute w-full h-full z-0 backdrop-blur-sm"></div>
+            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col">
+              <span className="sm:text-right">Frontend</span>
+              <span className="bg-neutral-300/60 border border-black py-3 sm:py-5 px-5 sm:px-10">
+                Developer
+              </span>
+            </div>
+          </div>
+        </div>
+        <div>
+          CONTENT GOES HERE CONTENT GOES HERE CONTENT GOES HERE CONTENT GOES
+          HERE CONTENT GOES HERE CONTENT GOES HERE CONTENT GOES HERE CONTENT
+          GOES HERE CONTENT GOES HERE CONTENT GOES HERE
+        </div>
+      </main>
     </>
   );
 };
