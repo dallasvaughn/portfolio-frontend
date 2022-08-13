@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.box {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.box-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box-line {
+  stroke-width: 5;
+  stroke: #ddd;
+  fill: none;
+}
+
+.horizontal {
+  stroke-dasharray: 300;
+}
+
+.vertical {
+  stroke-dasharray: 200;
+}
+
+.top-line {
+  animation: move-top 1s cubic-bezier(0.78, 0.2, 0.3, 0.98);
+}
+
+.left-line {
+  animation: move-left 1s cubic-bezier(0.78, 0.2, 0.3, 0.98);
+}
+
+.bottom-line {
+  animation: move-bottom 1s cubic-bezier(0.78, 0.2, 0.3, 0.98);
+}
+
+.right-line {
+  animation: move-right 1s cubic-bezier(0.78, 0.2, 0.3, 0.98);
+}
+
+@keyframes move-top {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-600px);
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(400px);
+  }
+}
+
+@keyframes move-bottom {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(600px);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(-400px);
+  }
+}
