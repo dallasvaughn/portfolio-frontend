@@ -6,6 +6,7 @@ import logo from '../public/logo.svg';
 import crow from '../public/crow-fly.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import Project from '../components/Project';
 
 const Home: NextPage = () => {
   const { ref, inView, entry } = useInView();
@@ -74,13 +75,56 @@ const Home: NextPage = () => {
           </div>
         </div>
 
+        <section className="mt-20 flex flex-col lg:flex-row gap-20 lg:gap-8">
+          <div>
+            <h3 className="uppercase tracking-widest mb-4">
+              Previous Work / Projects
+            </h3>
+            <div className="flex flex-col gap-3">
+              <Project
+                url="https://skymeta.com"
+                title="SkyMeta"
+                description="Commercial Real Estate Lending"
+              />
+              <Project
+                url="https://krave.vercel.app"
+                title="Krave"
+                description="E-commerce Mock UI"
+              />
+              <Project
+                url="https://dallasvaughn.github.io/testing-site-locator/"
+                title="COVID-19 Testing"
+                description="Sample Testing Data Visualization"
+              />
+            </div>
+          </div>
+          <div>
+            <h3 className="uppercase tracking-widest mb-4">
+              Previous Work / Projects
+            </h3>
+            <div className="flex flex-col gap-3">
+              <Project
+                url="https://skymeta.com"
+                title="SkyMeta"
+                description="Commercial Real Estate Lending"
+              />
+              <Project
+                url="https://krave.vercel.app"
+                title="Krave"
+                description="E-commerce Mock UI"
+              />
+              <Project
+                url="https://dallasvaughn.github.io/testing-site-locator/"
+                title="COVID-19 Testing"
+                description="Sample Testing Data Visualization"
+              />
+            </div>
+          </div>
+        </section>
+
         <section className="w-full relative">
-          <div ref={ref} className="box sm:mt-80 left-40">
-            <svg
-              className="box-svg hidden sm:inline"
-              width="300px"
-              height="200px"
-            >
+          <div ref={ref} className="box sm:mt-80 sm:left-40">
+            <svg className="box-svg inline" width="300px" height="200px">
               <line
                 id="top-line"
                 className="box-line horizontal"
