@@ -3,10 +3,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import crow from '../public/crow-fly.svg';
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { useEffect, useState, SyntheticEvent } from 'react';
 import Project from '../components/Project';
 import Post from '../components/Post';
 import { getSortedPostsData } from '../lib/posts';
+
+interface Props {
+  allPostsData: [];
+}
 
 interface PostData {
   title: string;
@@ -24,7 +28,11 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Home: NextPage = ({ allPostsData }: any) => {
+const Home: NextPage<Props> = ({ allPostsData }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
   const { ref, inView } = useInView();
 
   useEffect(() => {
@@ -35,6 +43,29 @@ const Home: NextPage = ({ allPostsData }: any) => {
       document.getElementById('right-line')?.classList.add('right-line');
     }
   }, [inView]);
+
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    const data = {
+      name,
+      email,
+      message,
+    };
+    try {
+      fetch('/api/contact', {
+        method: 'post',
+        body: JSON.stringify(data),
+      });
+      setResponse('Thanks, I will get back to you as soon as possible!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      setResponse(
+        'Sorry, an error occurred trying to send this message. Try again later.'
+      );
+    }
+  };
 
   return (
     <>
@@ -89,6 +120,7 @@ const Home: NextPage = ({ allPostsData }: any) => {
               {allPostsData.map((post: PostData) => {
                 return (
                   <Post
+                    key={post.id}
                     title={post.title}
                     preview={post.preview}
                     displayDate={post.displayDate}
@@ -154,23 +186,40 @@ const Home: NextPage = ({ allPostsData }: any) => {
               opportunities, or simply want to chat about something, feel free
               to use this form to get in touch with me!
             </p>
-            <input
-              className="w-full border p-2 mt-6 lg:mt-10 font-extralight text-[15px]"
-              type="text"
-              placeholder="Name"
-            />
-            <input
-              className="w-full border p-2 mt-6 font-extralight text-[15px]"
-              type="email"
-              placeholder="Email"
-            />
-            <textarea
-              className="w-full border p-2 mt-6 font-extralight text-[15px]"
-              placeholder="Message"
-            />
-            <button className="bg-black hover:bg-slate-700 text-white pt-4 pb-3 px-6 font-bold uppercase mt-4">
-              Send
-            </button>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="w-full border p-2 mt-6 lg:mt-10 font-extralight text-[15px]"
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+              <input
+                className="w-full border p-2 mt-6 font-extralight text-[15px]"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <textarea
+                className="w-full border p-2 mt-6 font-extralight text-[15px]"
+                placeholder="Message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              />
+              {response && (
+                <p className="mt-2 text-[15px] font-extralight">{response}</p>
+              )}
+              <button
+                className="bg-black hover:bg-slate-700 text-white pt-4 pb-3 px-6 font-bold uppercase mt-4"
+                type="submit"
+              >
+                Send
+              </button>
+            </form>
           </div>
         </section>
       </main>

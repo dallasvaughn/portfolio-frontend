@@ -28,6 +28,7 @@ const Blog: NextPage<Props> = ({ allPostsData }) => {
       {allPostsData.map((post: PostData) => {
         return (
           <Post
+            key={post.id}
             title={post.title}
             preview={post.preview}
             displayDate={post.displayDate}
