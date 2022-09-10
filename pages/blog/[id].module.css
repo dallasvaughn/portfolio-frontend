@@ -1,0 +1,7 @@
+.text_body > p:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.text_body > p > strong {
+  font-weight: 800;
+}

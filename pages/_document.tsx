@@ -11,8 +11,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=Kanit:wght@600;900&display=swap"
             rel="stylesheet"
           />
+          <script src="https://kit.fontawesome.com/1375606f68.js"></script>
         </Head>
-        <body className="flex max-w-5xl flex-col mx-auto justify-between min-h-screen py-5">
+        <body className="flex max-w-5xl flex-col mx-auto justify-between min-h-screen">
           <Main />
           <NextScript />
         </body>

@@ -1,15 +1,31 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import logo from '../public/logo.svg';
 import crow from '../public/crow-fly.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import Project from '../components/Project';
+import Post from '../components/Post';
+import { getSortedPostsData } from '../lib/posts';
 
-const Home: NextPage = () => {
-  const { ref, inView, entry } = useInView();
+interface PostData {
+  title: string;
+  preview: string;
+  displayDate: string;
+  id: string;
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+};
+
+const Home: NextPage = ({ allPostsData }: any) => {
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (inView) {
@@ -26,37 +42,6 @@ const Home: NextPage = () => {
         <title>Dallas Vaughn | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <header>
-        <div className="flex justify-between items-center px-5">
-          <Link href="/">
-            <span className="flex items-center cursor-pointer">
-              <Image src={logo} alt="logo" width={70} height={70} />
-              <span className="text-2xl hidden sm:flex flex-col ml-4 mt-2 uppercase">
-                <strong className="font-black">Dallas</strong>{' '}
-                <span className="font-extralight ml-6 -mt-3">Vaughn</span>
-              </span>
-            </span>
-          </Link>
-          <nav className="flex text-sm">
-            <Link href="/">
-              <span className="ml-4 link border-b-2 border-teal-800 rounded-sm cursor-pointer">
-                Home
-              </span>
-            </Link>
-            <Link href="/">
-              <span className="ml-4 transition-all ease-in-out hover:border-b-2 cursor-pointer">
-                Blog
-              </span>
-            </Link>
-            <Link href="/">
-              <span className="ml-4 transition-all ease-in-out hover:border-b-2 cursor-pointer">
-                About
-              </span>
-            </Link>
-          </nav>
-        </div>
-      </header>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
         <div className="relative top-0 mb-20">
@@ -99,31 +84,27 @@ const Home: NextPage = () => {
             </div>
           </div>
           <div>
-            <h3 className="uppercase tracking-widest mb-4">
-              Previous Work / Projects
-            </h3>
-            <div className="flex flex-col gap-3">
-              <Project
-                url="https://skymeta.com"
-                title="SkyMeta"
-                description="Commercial Real Estate Lending"
-              />
-              <Project
-                url="https://krave.vercel.app"
-                title="Krave"
-                description="E-commerce Mock UI"
-              />
-              <Project
-                url="https://dallasvaughn.github.io/testing-site-locator/"
-                title="COVID-19 Testing"
-                description="Sample Testing Data Visualization"
-              />
+            <h3 className="uppercase tracking-widest mb-4">Recent Posts</h3>
+            <div className="flex flex-col gap-5 border rounded p-6 sm:max-w-[32rem]">
+              {allPostsData.map((post: PostData) => {
+                return (
+                  <Post
+                    title={post.title}
+                    preview={post.preview}
+                    displayDate={post.displayDate}
+                    link={`/blog/${post.id}`}
+                  />
+                );
+              })}
             </div>
           </div>
         </section>
 
         <section className="w-full relative">
-          <div ref={ref} className="box sm:mt-80 sm:left-40">
+          <div
+            ref={ref}
+            className="box mt-20 mx-auto lg:mt-40 lg:left-40 lg:mx-0 bg-white"
+          >
             <svg className="box-svg inline" width="300px" height="200px">
               <line
                 id="top-line"
@@ -165,6 +146,31 @@ const Home: NextPage = () => {
               <br />
               touch
             </h2>
+          </div>
+
+          <div className=" shadow-2xl w-full sm:max-w-screen-sm sm:mx-auto -mt-40 mb-10 -z-10 p-8">
+            <p className="lg:text-left mt-40 lg:mt-0 lg:ml-auto lg:w-1/2 font-extralight text-[15px] leading-7">
+              If you have any questions for me, want to discuss any work
+              opportunities, or simply want to chat about something, feel free
+              to use this form to get in touch with me!
+            </p>
+            <input
+              className="w-full border p-2 mt-6 lg:mt-10 font-extralight text-[15px]"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              className="w-full border p-2 mt-6 font-extralight text-[15px]"
+              type="email"
+              placeholder="Email"
+            />
+            <textarea
+              className="w-full border p-2 mt-6 font-extralight text-[15px]"
+              placeholder="Message"
+            />
+            <button className="bg-black hover:bg-slate-700 text-white pt-4 pb-3 px-6 font-bold uppercase mt-4">
+              Send
+            </button>
           </div>
         </section>
       </main>
