@@ -77,7 +77,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
         <div className="relative top-0 mb-20">
           <div className="h-10 sm:h-20"></div>
-          <div className="animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] w-screen">
+          <div className="animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] crow">
             <Image src={crow} layout="fill" />
           </div>
           <div className="absolute w-full h-full top-0 flex align-center justify-center">
