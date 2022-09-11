@@ -1,4 +1,5 @@
 import { NextPage, GetStaticProps } from 'next';
+import Head from 'next/head';
 import Post from '../components/Post';
 import { getSortedPostsData } from '../lib/posts';
 
@@ -24,19 +25,26 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Blog: NextPage<Props> = ({ allPostsData }) => {
   return (
-    <main className="flex flex-col gap-3 border rounded p-6 mx-auto mt-16 md:max-w-screen-sm">
-      {allPostsData.map((post: PostData) => {
-        return (
-          <Post
-            key={post.id}
-            title={post.title}
-            preview={post.preview}
-            displayDate={post.displayDate}
-            link={`/blog/${post.id}`}
-          />
-        );
-      })}
-    </main>
+    <>
+      <Head>
+        <title>Dallas Vaughn | Blog</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className="flex flex-col gap-3 border rounded p-6 mx-auto mt-16 md:max-w-screen-sm">
+        {allPostsData.map((post: PostData) => {
+          return (
+            <Post
+              key={post.id}
+              title={post.title}
+              preview={post.preview}
+              displayDate={post.displayDate}
+              link={`/blog/${post.id}`}
+            />
+          );
+        })}
+      </main>
+    </>
   );
 };
 
