@@ -8,8 +8,10 @@
   flex-direction: column;
 }
 
-.crow {
-  width: calc(100vw - 20px);
+@media (min-width: 650px) {
+  .crow {
+    width: calc(100vw - 20px);
+  }
 }
 
 .box {
