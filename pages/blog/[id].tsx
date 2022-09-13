@@ -7,7 +7,7 @@ interface Props {
   postData: {
     title: string;
     preview: string;
-    date: string;
+    displayDate: string;
     contentHtml: string;
   };
 }
@@ -38,8 +38,8 @@ const Post: NextPage<Props> = ({ postData }) => {
       </Head>
 
       <main className="mx-auto mt-16 max-w-screen-md p-5 md:p-16 shadow-xl">
-        <span className="text-sm text-teal-700">{postData.date}</span>
-        <h1 className="font-black text-4xl md:text-5xl mb-4 mt-3">
+        <span className="text-sm text-teal-700">{postData.displayDate}</span>
+        <h1 className="font-black text-3xl md:text-5xl mb-4 mt-3">
           {postData.title}
         </h1>
         <div

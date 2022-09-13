@@ -77,12 +77,12 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
         <div className="relative top-0 mb-20">
           <div className="h-10 sm:h-20"></div>
-          <div className="animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] crow">
+          <div className="md:animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] crow">
             <Image src={crow} layout="fill" />
           </div>
           <div className="absolute w-full h-full top-0 flex align-center justify-center">
             <div className="absolute w-full h-full z-0 backdrop-blur-sm"></div>
-            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col animate-fade-in-right">
+            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col md:animate-fade-in-right">
               <span className="sm:text-right">Frontend</span>
               <span className="bg-neutral-300/60 border border-black py-3 sm:py-5 px-5 sm:px-10">
                 Developer
@@ -91,7 +91,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
           </div>
         </div>
 
-        <section className="mt-20 flex flex-col lg:flex-row gap-20 lg:gap-8">
+        <section className="mt-5 md:mt-20 flex flex-col lg:flex-row gap-20 lg:gap-8">
           <div>
             <h3 className="uppercase tracking-widest mb-4">
               Previous Work / Projects
@@ -117,7 +117,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
           <div>
             <h3 className="uppercase tracking-widest mb-4">Recent Posts</h3>
             <div className="flex flex-col gap-5 border rounded p-6 sm:max-w-[32rem]">
-              {allPostsData.map((post: PostData) => {
+              {allPostsData.slice(0, 3).map((post: PostData) => {
                 return (
                   <Post
                     key={post.id}
