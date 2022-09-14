@@ -71,7 +71,6 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
     <>
       <Head>
         <title>Dallas Vaughn | Home</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
@@ -82,7 +81,7 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
           </div>
           <div className="absolute w-full h-full top-0 flex align-center justify-center">
             <div className="absolute w-full h-full z-0 backdrop-blur-sm"></div>
-            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col md:animate-fade-in-right">
+            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col lg:animate-fade-in-right">
               <span className="sm:text-right">Frontend</span>
               <span className="bg-neutral-300/60 border border-black py-3 sm:py-5 px-5 sm:px-10">
                 Developer

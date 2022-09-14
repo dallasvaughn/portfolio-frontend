@@ -1,5 +1,5 @@
 ---
-title: 'Tech stack used for this portfolio'
+title: 'A scalable tech stack for a simple portfolio'
 date: '2022-09-13'
 displayDate: 'September 13, 2022'
 preview: 'I want to provide a brief overview of the technologies I used to create this portfolio website and why I picked them. My primary concern when making these decisions was scalability.'
