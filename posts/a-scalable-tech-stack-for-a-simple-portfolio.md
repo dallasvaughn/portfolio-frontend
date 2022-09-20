@@ -2,7 +2,7 @@
 title: 'A scalable tech stack for a simple portfolio'
 date: '2022-09-13'
 displayDate: 'September 13, 2022'
-preview: 'I want to provide a brief overview of the technologies I used to create this portfolio website and why I picked them. My primary concern when making these decisions was scalability.'
+preview: 'I want to provide a brief overview of the technologies I used to create this portfolio website and why I picked them. My primary focus when making these decisions was scalability.'
 ---
 
 I want to provide a brief overview of the technologies I used to create this portfolio website and why I picked them. My primary concern when making these decisions was scalability; even now, I am not 100% sure what I may or may not end up adding or removing from my website, so I wanted to make sure that which ever route I take, I will not cause too much trouble for myself. An added bonus as well is I was able to get more experience with technologies I wasn't too familiar with, and brand new ones I have never used before. So without further ado, here is the stack:
