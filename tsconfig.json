@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "decs.d.ts",
-    "pages/api/contact.js"
+    "pages/api/contact.js",
+    "jest.config.js"
   ],
   "exclude": ["node_modules"]
 }

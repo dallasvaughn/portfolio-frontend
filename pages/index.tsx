@@ -1,12 +1,12 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import crow from '../public/crow-fly.svg';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState, SyntheticEvent } from 'react';
 import Project from '../components/Project';
 import Post from '../components/Post';
 import { getSortedPostsData } from '../lib/posts';
+import Hero from '../components/Hero';
+import ProjectList from '../components/ProjectList';
 
 interface Props {
   allPostsData: [];
@@ -74,45 +74,9 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
-        <div className="relative top-0 mb-20">
-          <div className="h-10 sm:h-20"></div>
-          <div className="md:animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] crow">
-            <Image src={crow} layout="fill" />
-          </div>
-          <div className="absolute w-full h-full top-0 flex align-center justify-center">
-            <div className="absolute w-full h-full z-0 backdrop-blur-sm"></div>
-            <div className="my-auto z-10 font-['Kanit'] text-5xl sm:text-8xl font-black uppercase flex flex-col lg:animate-fade-in-right">
-              <span className="sm:text-right">Frontend</span>
-              <span className="bg-neutral-300/60 border border-black py-3 sm:py-5 px-5 sm:px-10">
-                Developer
-              </span>
-            </div>
-          </div>
-        </div>
-
+        <Hero />
         <section className="mt-5 md:mt-20 flex flex-col lg:flex-row gap-20 lg:gap-8">
-          <div>
-            <h3 className="uppercase tracking-widest mb-4">
-              Previous Work / Projects
-            </h3>
-            <div className="flex flex-col gap-3">
-              <Project
-                url="https://skymeta.com"
-                title="SkyMeta"
-                description="Commercial Real Estate Lending"
-              />
-              <Project
-                url="https://krave.vercel.app"
-                title="Krave"
-                description="E-commerce Mock UI"
-              />
-              <Project
-                url="https://dallasvaughn.github.io/testing-site-locator/"
-                title="COVID-19 Testing"
-                description="Sample Testing Data Visualization"
-              />
-            </div>
-          </div>
+          <ProjectList />
           <div>
             <h3 className="uppercase tracking-widest mb-4">Recent Posts</h3>
             <div className="flex flex-col gap-5 border rounded p-6 sm:max-w-[32rem]">
