@@ -46,6 +46,13 @@ const Post: NextPage<Props> = ({ postData }) => {
           className={`font-extralight leading-7 text-[15px] ${styles.text_body}`}
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
+        <div className="mt-10">
+          <hr />
+          <p className="mt-6 text-[12px] font-extralight tracking-wide">
+            Written by <span className="font-bold">Dallas Vaughn</span> in
+            Seattle, WA.
+          </p>
+        </div>
       </main>
     </>
   );

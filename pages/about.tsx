@@ -9,7 +9,7 @@ const About = () => {
       </Head>
 
       <main>
-        <div className="mt-36 md:mt-48 max-w-[560px] mx-auto">
+        <div className="mt-36 md:mt-48 md:mb-24 max-w-[560px] mx-auto">
           <h2 className="px-4 text-3xl font-medium">I'm Dallas.</h2>
           <p className="p-4 font-light leading-7 text-sm">
             I'm a frontend developer currently living in Seattle, WA, and I
