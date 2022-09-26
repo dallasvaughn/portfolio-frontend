@@ -39,7 +39,7 @@ const Post: NextPage<Props> = ({ postData }) => {
 
       <main className="mx-auto mt-16 max-w-screen-md p-5 md:p-16 shadow-xl">
         <span className="text-sm text-teal-700">{postData.displayDate}</span>
-        <h1 className="font-black text-3xl md:text-5xl mb-4 mt-3">
+        <h1 className="font-black text-3xl md:text-4xl mb-4 mt-3">
           {postData.title}
         </h1>
         <div
