@@ -13,15 +13,15 @@ const ContactForm = () => {
       email,
       message,
     };
+    setName('');
+    setEmail('');
+    setMessage('');
     try {
       fetch('/api/contact', {
         method: 'post',
         body: JSON.stringify(data),
       });
       setResponse('Thanks, I will get back to you as soon as possible!');
-      setName('');
-      setEmail('');
-      setMessage('');
     } catch (error) {
       setResponse(
         'Sorry, an error occurred trying to send this message. Try again later.'
