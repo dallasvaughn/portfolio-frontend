@@ -35,6 +35,7 @@ const Post: NextPage<Props> = ({ postData }) => {
       <Head>
         <title>{postData.title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={postData.preview} />
       </Head>
 
       <main className="mx-auto mt-16 max-w-screen-md p-5 md:p-16 shadow-xl">

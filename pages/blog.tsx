@@ -29,6 +29,10 @@ const Blog: NextPage<Props> = ({ allPostsData }) => {
       <Head>
         <title>Dallas Vaughn | Blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Dallas Vaughn is a frontend engineer bringing design specifications to life in Seattle, WA"
+        />
       </Head>
 
       <main className="flex flex-col gap-3 border rounded p-6 mx-auto mt-16 md:max-w-screen-sm">

@@ -21,10 +21,7 @@ class MyDocument extends Document {
           `,
             }}
           />
-          <meta
-            name="description"
-            content="Dallas Vaughn is a frontend engineer bringing design specifications to life in Seattle, WA"
-          />
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/logo.svg" />

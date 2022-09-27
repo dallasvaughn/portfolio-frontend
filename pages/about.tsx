@@ -6,6 +6,10 @@ const About = () => {
       <Head>
         <title>Dallas Vaughn | About</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Dallas Vaughn is a frontend engineer bringing design specifications to life in Seattle, WA"
+        />
       </Head>
 
       <main>

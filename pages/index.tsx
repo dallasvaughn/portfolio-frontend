@@ -37,6 +37,10 @@ const Home: NextPage<Props> = ({ allPostsData }) => {
     <>
       <Head>
         <title>Dallas Vaughn | Home</title>
+        <meta
+          name="description"
+          content="Dallas Vaughn is a frontend engineer bringing design specifications to life in Seattle, WA"
+        />
       </Head>
 
       <main className="flex w-full flex-1 flex-col items-center justify-center text-center p-1">
