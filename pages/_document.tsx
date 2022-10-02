@@ -6,11 +6,27 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script
-            async
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="shortcut icon" href="/logo.svg" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=Kanit:wght@600;900&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body className="flex max-w-5xl flex-col mx-auto justify-between min-h-screen">
+          <Main />
+          <NextScript />
+          <Script
+            id="font-awesome"
+            src="https://kit.fontawesome.com/1375606f68.js"
+          />
+          <Script
+            id="google-tag-manager"
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
-          <script
+          <Script
+            id="google-analytics"
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];
@@ -22,19 +38,6 @@ class MyDocument extends Document {
           `,
             }}
           />
-
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link rel="shortcut icon" href="/logo.svg" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=Kanit:wght@600;900&display=swap"
-            rel="stylesheet"
-          />
-          <script src="https://kit.fontawesome.com/1375606f68.js"></script>
-        </Head>
-        <body className="flex max-w-5xl flex-col mx-auto justify-between min-h-screen">
-          <Main />
-          <NextScript />
         </body>
       </Html>
     );
