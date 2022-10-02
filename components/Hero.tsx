@@ -7,7 +7,7 @@ const Hero: NextPage = () => {
     <div className="relative top-0 mb-20">
       <div className="h-10 sm:h-20"></div>
       <div className="md:animate-fade-in relative opacity-0 min-h-[450px] sm:min-h-[500px] crow">
-        <Image src={crow} layout="fill" />
+        <Image src={crow} alt="crow" layout="fill" />
       </div>
       <div className="absolute w-full h-full top-0 flex align-center justify-center">
         <div className="absolute w-full h-full z-0 backdrop-blur-sm"></div>

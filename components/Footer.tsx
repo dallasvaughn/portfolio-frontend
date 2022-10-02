@@ -6,10 +6,18 @@ const Footer = () => {
         <i className="fa-solid fa-cloud-rain"></i>
       </span>
       <div className="text-2xl flex gap-4">
-        <a href="https://www.linkedin.com/in/dallas-vaughn/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/dallas-vaughn/"
+          aria-label="LinkedIn"
+          target="_blank"
+        >
           <i className="fa-brands fa-linkedin hover:text-teal-700"></i>
         </a>
-        <a href="https://github.com/dallasvaughn" target="_blank">
+        <a
+          href="https://github.com/dallasvaughn"
+          aria-label="GitHub"
+          target="_blank"
+        >
           <i className="fa-brands fa-github hover:text-teal-700"></i>
         </a>
       </div>
