@@ -42,3 +42,5 @@ describe('Blog', () => {
     });
   });
 });
+
+export {};
