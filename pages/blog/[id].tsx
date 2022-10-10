@@ -38,7 +38,7 @@ const Post: NextPage<Props> = ({ postData }) => {
         <meta name="description" content={postData.preview} />
       </Head>
 
-      <main className="mx-auto mt-16 max-w-screen-md p-5 md:p-16 shadow-xl">
+      <main className="mx-auto mt-16 max-w-full sm:max-w-screen-md p-5 md:p-16 shadow-xl">
         <span className="text-sm text-teal-700">{postData.displayDate}</span>
         <h1 className="font-black text-3xl md:text-4xl mb-4 mt-3">
           {postData.title}
