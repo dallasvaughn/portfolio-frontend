@@ -34,3 +34,11 @@
 .text_body > p > a {
   color: blue;
 }
+
+.text_body > pre {
+  background-color: rgb(226 232 240);
+  font-size: 14px;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
