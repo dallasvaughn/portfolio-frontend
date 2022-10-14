@@ -9,6 +9,11 @@ const ProjectList: NextPage = () => {
       </h3>
       <div className="flex flex-col gap-3">
         <Project
+          url="https://sneakers.dallasvaughn.com"
+          title="Sneakers"
+          description="Single Product Mock UI"
+        />
+        <Project
           url="https://skymeta.com"
           title="SkyMeta"
           description="Commercial Real Estate Lending"
