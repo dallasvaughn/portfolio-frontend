@@ -9,6 +9,11 @@ const ProjectList: NextPage = () => {
       </h3>
       <div className="flex flex-col gap-3">
         <Project
+          url="https://kanban.dallasvaughn.com"
+          title="Kanban"
+          description="Functional Kanban Board"
+        />
+        <Project
           url="https://sneakers.dallasvaughn.com"
           title="Sneakers"
           description="Single Product Mock UI"
@@ -22,11 +27,6 @@ const ProjectList: NextPage = () => {
           url="https://krave.vercel.app"
           title="Krave"
           description="E-commerce Mock UI"
-        />
-        <Project
-          url="https://dallasvaughn.github.io/testing-site-locator/"
-          title="COVID-19 Testing"
-          description="Sample Testing Data Visualization"
         />
       </div>
     </div>
